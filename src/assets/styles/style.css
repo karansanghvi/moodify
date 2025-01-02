@@ -1,0 +1,95 @@
+body {
+    background-color: black;
+    font-family: "Instrument Sans", serif;
+}
+
+/* header */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 40px;
+    color: white;
+}
+
+.navbar-logo {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-logo h1{
+    color: white;
+    font-size: 64px;
+    font-weight: 700;
+}
+  
+.navbar-links {
+    display: flex;
+    gap: 1rem;
+}
+  
+.login-button {
+    background-color: #4D4DFF;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 20px;
+}
+
+.login-button h1 {
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+/* home section */
+.home-section {
+    padding-top: 80px;
+}
+
+.home-section h1 {
+    color: white;
+    font-size: 90px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.home-section p {
+    color: yellow;
+    font-size: 50px;
+    text-align: center;
+    font-style: italic;
+}
+  
+/* Mobile Styles */
+.navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+  
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 3.5rem;
+      right: 1rem;
+      background-color: #444;
+      padding: 1rem;
+      border-radius: 8px;
+      z-index: 10;
+    }
+  
+    .navbar-links.open {
+      display: flex;
+    }
+  
+    .navbar-toggle {
+      display: block;
+    }
+}
