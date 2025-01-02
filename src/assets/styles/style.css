@@ -5,12 +5,20 @@ body {
 
 /* header */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    padding: 40px;
-    color: white;
+    position: fixed; 
+    top: 40px; 
+    left: 40px; 
+    right: 40px; 
+    width: calc(100% - 80px); 
+    z-index: 1000; 
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px); 
+    border-radius: 20px; 
+    padding: 15px; 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    color: white; 
+    cursor: pointer;
 }
 
 .navbar-logo {
@@ -20,7 +28,7 @@ body {
 
 .navbar-logo h1{
     color: white;
-    font-size: 64px;
+    font-size: 40px;
     font-weight: 700;
 }
   
@@ -34,6 +42,7 @@ body {
     padding-left: 40px;
     padding-right: 40px;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .login-button h1 {
@@ -42,12 +51,12 @@ body {
     font-weight: 700;
 }
 
-/* home section */
+/* hero section */
 .home-section {
-    padding-top: 80px;
+    padding-top: 320px;
 }
 
-.home-section h1 {
+.hero-section h1 {
     color: white;
     font-size: 90px;
     font-weight: 700;
@@ -60,7 +69,66 @@ body {
     text-align: center;
     font-style: italic;
 }
-  
+
+.who-we-are-section {
+    padding-top: 220px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.who-we-are-section h1 {
+    font-size: 64px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}
+
+.who-we-are-section p {
+    color: white;
+    font-size: 20px;
+    font-style: normal;
+}
+
+.capture-mood-section  {
+    padding-top: 100px;
+}
+
+.capture-mood-section h1 {
+    font-size: 64px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}
+
+/* upload image section */
+.upload-image {
+    background-color: #4D4DFF;
+}
+
+.click-image {
+    background-color: #4D4DFF;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+/* footer */
+.footer-section {
+    background-color: #4D4DFF;
+}
+
+.footer-section h1 {
+    font-size: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    font-weight: 500;
+    text-align: center;
+}
+
 /* Mobile Styles */
 .navbar-toggle {
     display: none;
@@ -73,23 +141,21 @@ body {
   
 /* Responsive Design */
 @media (max-width: 768px) {
-    .navbar-links {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 3.5rem;
-      right: 1rem;
-      background-color: #444;
-      padding: 1rem;
-      border-radius: 8px;
-      z-index: 10;
+    .navbar-logo h1 {
+        font-size: 54px;
     }
-  
-    .navbar-links.open {
-      display: flex;
+
+    .home-section {
+        padding-left: 10px;
+        padding-right: 10px;
     }
-  
-    .navbar-toggle {
-      display: block;
+
+    .hero-section h1 {
+        font-size: 65px;
+        padding-bottom: 40px;
+    }
+
+    .home-section p {
+        font-size: 40px;
     }
 }
