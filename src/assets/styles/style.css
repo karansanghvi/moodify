@@ -138,6 +138,12 @@ body {
     box-shadow: none;
 }
 
+.result-scroll-p {
+    margin-top: 20px;
+    font-size: 28px;
+    color: white;
+}
+
 /* footer */
 .footer-section h1 {
     font-size: 25px;

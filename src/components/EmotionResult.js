@@ -49,6 +49,9 @@ function EmotionResult() {
                     You're feeling {emotion} !!
                 </h2>
             </div>
+            <p className="result-scroll-p">Scroll down to get the perfect tunes for your vibe!!</p>
+
+            <h1 className="result-title mt-40">Tunes Tailored For You</h1>
         </div>
     </>
   );
