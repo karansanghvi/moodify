@@ -4,10 +4,13 @@
   "private": true,
   "dependencies": {
     "@headlessui/react": "^2.2.0",
+    "@tensorflow-models/mobilenet": "^2.1.1",
+    "@tensorflow/tfjs": "^4.22.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^14.5.2",
     "cra-template": "1.2.0",
+    "face-api.js": "^0.22.2",
     "headlessui": "^0.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

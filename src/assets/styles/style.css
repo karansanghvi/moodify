@@ -6,9 +6,9 @@ body {
 /* header */
 .navbar {
     position: fixed; 
-    top: 40px; 
-    left: 40px; 
-    right: 40px; 
+    top: 10px; 
+    left: 20px; 
+    right: 20px; 
     width: calc(100% - 80px); 
     z-index: 1000; 
     background: rgba(255, 255, 255, 0.1); 

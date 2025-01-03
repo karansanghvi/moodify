@@ -1,7 +1,8 @@
 import React from 'react'
 import Header from '../components/Header'
-import ImageCaptureUpload from '../components/ImageCaptureUpload'
+// import ImageCaptureUpload from '../components/ImageCaptureUpload'
 import Footer from '../components/Footer'
+import EmotionDetection from '../components/EmotionDetection'
 // import WebcamCapture from '../components/WebcamCapture'
 
 function Home() {
@@ -24,7 +25,8 @@ function Home() {
             <div className='capture-mood-section'>
                 <h1>Capture Your Mood</h1>
                 {/* <WebcamCapture/> */}
-                <ImageCaptureUpload/>
+                {/* <ImageCaptureUpload/> */}
+                <EmotionDetection/>
                 <br/> <br/>
             </div>
         </div>
