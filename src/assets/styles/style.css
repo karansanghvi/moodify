@@ -101,10 +101,6 @@ body {
 }
 
 /* upload image section */
-.upload-image {
-    background-color: #4D4DFF;
-}
-
 .click-image {
     background-color: #4D4DFF;
     padding-left: 40px;
@@ -115,11 +111,34 @@ body {
     color: white;
 }
 
-/* footer */
-.footer-section {
-    background-color: #4D4DFF;
+/* loading animation */
+.loader {
+    border-top-color: #3498db;
+    animation: spin 1s ease-in-out infinite;
 }
 
+@keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+} 
+
+/* result */
+.result-title {
+    font-size: 64px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}
+
+.emotion-box img {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+/* footer */
 .footer-section h1 {
     font-size: 25px;
     padding-top: 20px;
