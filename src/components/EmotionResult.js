@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 // Import images
@@ -11,12 +11,16 @@ import fearfulImage from "../assets/images/fearful.png";
 import neutralImage from "../assets/images/neutral.png";
 import defaultImage from "../assets/images/neutral.png";
 import Header from "./Header";
+import axios from "axios";
 
 function EmotionResult() {
   const location = useLocation();
   const { emotion } = location.state || {
     emotion: "No emotion detected",
   };
+
+  const [songs, setSongs] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Emotion-to-style and image mapping
   const emotionData = {
@@ -32,6 +36,22 @@ function EmotionResult() {
 
   // Get emotion-specific data or fallback to default
   const { color, image } = emotionData[emotion] || emotionData.default;
+
+  // Fetch songs from backend based on emotion
+  useEffect(() => {
+    const fetchSongs = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/search?emotion=${emotion}`);
+        setSongs(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching songs: ", error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchSongs();
+  }, [emotion]);
 
   return (
     <>
@@ -52,6 +72,27 @@ function EmotionResult() {
             <p className="result-scroll-p">Scroll down to get the perfect tunes for your vibe!!</p>
 
             <h1 className="result-title mt-40">Tunes Tailored For You</h1>
+
+            {
+              isLoading ? (
+                <p className="text-white">Loading songs...</p>
+              ) : (
+                <div className="song-list">
+                  {songs.map((song) => (
+                    <div key={song.id} className="song-item">
+                      <a
+                        href={song.external_urls.spotify}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600"
+                      >
+                        {song.name} by {song.artists.map((artist) => artist.name).join(", ")}
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              )
+            }
         </div>
     </>
   );
