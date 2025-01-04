@@ -45,7 +45,7 @@ function EmotionResult() {
     const fetchSongs = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/search?emotion=${emotion}`
+          `https://moodify-backend.vercel.app/search?emotion=${emotion}`
         );
         setSongs(response.data);
         setIsLoading(false);
