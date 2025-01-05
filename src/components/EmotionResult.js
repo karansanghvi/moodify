@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 // Import images
 import happyImage from "../assets/images/happy.png";
@@ -13,7 +14,6 @@ import defaultImage from "../assets/images/neutral.png";
 import playButton from "../assets/images/play button.png";
 import Footer from "./Footer";
 import Header from "./Header";
-import axios from "axios";
 
 function EmotionResult() {
   const location = useLocation();
@@ -22,8 +22,8 @@ function EmotionResult() {
   };
 
   const [songs, setSongs] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [visibleIndex, setVisibleIndex] = useState(0); // To track the visible range
+  const [isLoading, setIsLoading] = useState(true);
+  const [visibleIndex, setVisibleIndex] = useState(0);
 
   // Emotion-to-style and image mapping
   const emotionData = {
@@ -37,10 +37,9 @@ function EmotionResult() {
     default: { color: "bg-gray-200", image: defaultImage },
   };
 
-  // Get emotion-specific data or fallback to default
   const { color, image } = emotionData[emotion] || emotionData.default;
 
-  // Fetch songs from backend based on emotion
+  // Fetch songs from backend
   useEffect(() => {
     const fetchSongs = async () => {
       try {
@@ -48,9 +47,9 @@ function EmotionResult() {
           `https://moodify-backend.vercel.app/search?emotion=${emotion}`
         );
         setSongs(response.data);
-        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching songs: ", error);
+      } finally {
         setIsLoading(false);
       }
     };
@@ -60,7 +59,6 @@ function EmotionResult() {
 
   const ITEMS_PER_SLIDE = 4;
 
-  // Navigate slides
   const nextSlide = () => {
     if (visibleIndex + ITEMS_PER_SLIDE < songs.length) {
       setVisibleIndex(visibleIndex + ITEMS_PER_SLIDE);
@@ -101,7 +99,6 @@ function EmotionResult() {
           <p className="text-white">Loading songs...</p>
         ) : (
           <div>
-            {/* Slider Container */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {songs
                 .slice(visibleIndex, visibleIndex + ITEMS_PER_SLIDE)
@@ -134,8 +131,6 @@ function EmotionResult() {
                   </div>
                 ))}
             </div>
-
-            {/* Slider Navigation */}
             <div className="flex justify-center gap-10 mt-4">
               <button
                 onClick={prevSlide}
@@ -155,8 +150,7 @@ function EmotionResult() {
           </div>
         )}
       </div>
-      <br/> <br/>
-      <Footer/>
+      <Footer />
     </>
   );
 }
