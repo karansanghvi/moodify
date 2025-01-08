@@ -150,6 +150,7 @@ function EmotionResult() {
           </div>
         )}
       </div>
+      <br/> 
       <Footer />
     </>
   );
